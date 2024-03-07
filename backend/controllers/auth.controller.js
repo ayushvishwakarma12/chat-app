@@ -19,7 +19,7 @@ export const signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
-    const girlProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+    const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
 
     const newUser = new User({
       fullName,
@@ -59,7 +59,8 @@ export const login = async (req, res) => {
     if (!user || !isPasswordCorrect) {
       return res.status(400).json({ error: "Invalid username or password" });
     } else {
-      return res.status(200).json({ message: "logged in" });
+      generateTokenAndSetCookie(user._id, res);
+      return res.status(200).json(user);
     }
   } catch (error) {
     console.log("Error in login controller", error.message);
