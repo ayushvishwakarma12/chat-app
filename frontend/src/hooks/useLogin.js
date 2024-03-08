@@ -5,6 +5,7 @@ import { useAuthContext } from "../context/AuthContext";
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const { setAuthUser } = useAuthContext();
+  const baseURl = "https://ayu-chat-app.vercel.app";
 
   const login = async (username, password) => {
     const success = handleInputErrors(username, password);

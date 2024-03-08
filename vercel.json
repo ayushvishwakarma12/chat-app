@@ -1,14 +1,11 @@
 {
-  "builds": [
+  "buildCommands": "npm run build",
+  "outputDirectory": "frontend/dist",
+  "framework": "vite",
+  "rewrites": [
     {
-      "src": "./app.jsx",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/.*",
-      "dest": "server.js"
+      "source": "/(.*)",
+      "destination": "backend/server.js"
     }
   ]
 }
