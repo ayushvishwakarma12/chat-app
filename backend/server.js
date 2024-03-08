@@ -17,7 +17,7 @@ const __dirname = path.resolve();
 
 app.use(
   cors({
-    origin: ["https://ayu-chat-app.vercel.app"],
+    origin: ["https://ayu-chat-app.vercel.app", "http://localhost:8000"],
     methods: ["POST", "GET"],
     credentials: true,
   })

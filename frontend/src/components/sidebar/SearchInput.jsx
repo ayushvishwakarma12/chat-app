@@ -9,8 +9,6 @@ const SearchInput = () => {
   const { setSelectedConversation } = useConversation();
   const { conversations } = useGetConversations();
 
-  useEffect(() => {}, []);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (!search) return;
