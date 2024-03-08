@@ -5,14 +5,14 @@ import { useAuthContext } from "../context/AuthContext";
 const useLogin = () => {
   const [loading, setLoading] = useState(false);
   const { setAuthUser } = useAuthContext();
-  const baseURl = "https://ayu-chat-app.vercel.app";
+  const baseURl = "https://chat-app-cs92.onrender.com/login";
 
   const login = async (username, password) => {
     const success = handleInputErrors(username, password);
     if (!success) return;
     setLoading(true);
     try {
-      const res = await fetch("/auth/login", {
+      const res = await fetch(`${baseURl}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
