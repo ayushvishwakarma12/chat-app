@@ -34,11 +34,14 @@ app.use("/api/users", userRoutes);
 app.use(express.static(path.join(__dirname, "frontend/dist")));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist", "index.html"), function (error) {
-    if (error) {
-      res.status(500).send(error);
+  res.sendFile(
+    path.join(__dirname, "frontend", "dist", "index.html"),
+    function (error) {
+      if (error) {
+        res.status(500).send(error);
+      }
     }
-  });
+  );
 });
 
 // app.get("/", (req, res) => {
