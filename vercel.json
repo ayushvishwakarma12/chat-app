@@ -1,5 +1,5 @@
 {
-  "buildCommands": "npm run build",
+  "buildCommand": "npm run build",
   "outputDirectory": "frontend/dist",
   "framework": "vite",
   "rewrites": [
