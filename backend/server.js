@@ -15,6 +15,11 @@ const PORT = process.env.PORT || 8000;
 
 const __dirname = path.resolve();
 
+const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://chat-app-cs92.onrender.com"
+    : "http://localhost:8000";
+
 app.use(
   cors({
     origin: ["https://ayu-chat-app.vercel.app", "http://localhost:8000"],
@@ -27,9 +32,9 @@ app.use(express.json());
 
 app.use(cookieParser());
 
-app.use("/api/auth", authRoutes);
-app.use("/api/messages", messageRoutes);
-app.use("/api/users", userRoutes);
+app.use(`${baseUrl}/api/auth`, authRoutes);
+app.use(`${baseUrl}/api/messages`, messageRoutes);
+app.use(`${baseUrl}/api/users`, userRoutes);
 
 app.use(express.static(path.join(__dirname, "frontend/dist")));
 
