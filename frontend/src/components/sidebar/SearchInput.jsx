@@ -19,8 +19,6 @@ const SearchInput = () => {
       c.fullName.toLowerCase().includes(search.toLowerCase())
     );
 
-    console.log(conversation);
-
     if (conversation) {
       setSelectedConversation(conversation);
       setSearch("");

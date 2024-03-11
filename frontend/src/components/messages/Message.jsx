@@ -13,8 +13,6 @@ const Message = ({ message }) => {
     : selectedConversation?.profilePic;
   const bubbleBgColor = fromMe ? "bg-blue-500" : "";
   const shakeClass = message?.shouldShake ? "shake" : "";
-  console.log(message);
-  console.log(shakeClass);
 
   return (
     <div className={`chat ${chatClassName}`}>
